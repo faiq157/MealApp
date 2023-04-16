@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/main_drawer.dart';
 
 import 'category_screen.dart';
 import 'favorites_screen.dart';
@@ -32,6 +33,7 @@ class _TabScreenState extends State<TabScreen> {
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex]['title'] as String),
       ),
+      drawer: const MainDrawer(),
       body: _pages[_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
@@ -41,12 +43,12 @@ class _TabScreenState extends State<TabScreen> {
         currentIndex: _selectedPageIndex,
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             backgroundColor: Colors.pink,
             icon: Icon(Icons.category),
             label: "Category",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.star),
             label: "Favorites",
           ),
